@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Family Tree - Grandmother's Birthday</title>
+  <style>
+    :root{
+      --accent:#6b4eff;
+      --muted:#6b7280;
+      --line:#dfe4ff;
+      --card-shadow: 0 8px 24px rgba(99,102,241,0.08);
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      background: 
+        url('images/imagegogo1.jpg') no-repeat center top fixed,
+        url('images/wilton khowa.jpg') no-repeat left bottom fixed,
+        url('images/imageSifiso') no-repeat right bottom fixed,
+      
+        linear-gradient(135deg, #f8f5ff, #e0f7ff);
+      background-size: 300px, 300px, 300px, cover;
+      color:#111;
+    }
+
+    .container{max-width:1200px;margin:36px auto;padding:24px}
+
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .title{display:flex;gap:16px;align-items:center}
+    .logo{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#8a6bff);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:20px;box-shadow:var(--card-shadow)}
+    h1{font-size:20px;margin:0}
+    p.lead{margin:0;color:var(--muted)}
+
+    /* 🎉 Birthday Banner */
+    .banner {
+      text-align: center;
+      padding: 30px;
+      background: linear-gradient(135deg, #ffdee9, #b5fffc);
+      border-radius: 20px;
+      margin-bottom: 20px;
+      box-shadow: var(--card-shadow);
+      animation: pulse 3s infinite alternate;
+    }
+    .banner h2 {
+      font-size: 28px;
+      margin: 0;
+      color: #333;
+    }
+    .banner p {
+      font-size: 18px;
+      margin: 5px 0 0;
+      color: var(--muted);
+    }
+    @keyframes pulse {
+      from { transform: scale(1); }
+      to { transform: scale(1.05); }
+    }
+
+    .card{background:#ffffffd9;border-radius:14px;padding:20px;margin-top:20px;box-shadow:var(--card-shadow)}
+
+    /* Family tree styles */
+    .tree{padding:40px 20px 20px}
+    .tree ul{padding-top:20px;position:relative;display:flex;flex-wrap:wrap;justify-content:center}
+    .tree li{list-style:none;text-align:center;padding:10px 20px;position:relative;display:flex;flex-direction:column;align-items:center;min-width:150px}
+
+    /* connectors */
+    .tree ul::before{content:'';position:absolute;top:0;left:50%;border-left:2px solid var(--line);width:0;height:20px;transform:translateX(-50%)}
+    .tree li::before, .tree li::after{content:'';position:absolute;top:-20px;border-top:2px solid var(--line);width:50%;height:20px}
+    .tree li::before{right:50%}
+    .tree li::after{left:50%}
+    .tree li:only-child::before,.tree li:only-child::after{display:none}
+    .tree li:only-child{padding-top:0}
+    .tree li:first-child::before,.tree li:last-child::after{border:none}
+
+    .member{background:linear-gradient(180deg,#fff,#fbfbff);border-radius:12px;padding:12px;width:160px;box-shadow:0 6px 18px rgba(16,24,40,0.06);border:1px solid #f0f3ff;position:relative;overflow:visible}
+
+    /* ✅ Hover zoom effect */
+    .member img{
+      width:72px;
+      height:72px;
+      border-radius:50%;
+      object-fit:cover;
+      border:3px solid white;
+      margin-top:-46px;
+      box-shadow:0 4px 12px rgba(16,24,40,0.08);
+      transition:transform 0.3s ease, box-shadow 0.3s ease;
+      cursor:pointer;
+    }
+    .member img:hover{
+      transform:scale(2);
+      box-shadow:0 8px 24px rgba(0,0,0,0.25);
+      z-index:10;
+      position:relative;
+    }
+
+    /* 🌟 Glow for Gogo & Mkhulu */
+    .highlight img {
+      border: 4px solid gold;
+      box-shadow: 0 0 20px #FFD700, 0 0 40px #FFA500;
+      animation: glow 2s infinite alternate;
+    }
+    @keyframes glow {
+      from { box-shadow: 0 0 20px #FFD700, 0 0 40px #FFA500; }
+      to { box-shadow: 0 0 40px #FFD700, 0 0 80px #FF6347; }
+    }
+
+    .member h3{font-size:15px;margin:8px 0 2px}
+    .member p{font-size:13px;margin:0;color:var(--muted)}
+
+    .location{display:flex;flex-direction:column;gap:12px}
+    .addr{font-size:15px;background:#f8f9ff;padding:12px;border-radius:10px;border:1px dashed var(--line)}
+    .map-link{display:inline-block;padding:10px 14px;border-radius:10px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600}
+
+    @media (max-width:800px){
+      .tree ul{flex-direction:column}
+      .tree li{min-width:220px}
+    }
+
+    .note{font-size:13px;color:var(--muted)}
+
+    /* Side-by-side couple */
+    .couple{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+
+    /* 🖼️ Animated Gallery */
+    .gallery {
+      display: flex;
+      overflow: hidden;
+      position: relative;
+      height: 200px;
+    }
+    .gallery-track {
+      display: flex;
+      animation: scroll 25s linear infinite;
+      gap: 15px;
+    }
+    .gallery img {
+      width: 250px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: var(--card-shadow);
+    }
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 🎉 Birthday Banner -->
+    <div class="banner">
+      <h2>🎉 Happy 90th Birthday Gogo Nombango Francis Khowa 🎉</h2>
+      <p>Celebrating a legacy of love, family, and togetherness</p>
+    </div>
+
+    <header>
+      <div class="title">
+        <div class="logo">G</div>
+        <div>
+          <h1> Gogo Khowa Family Tree</h1>
+          <p class="lead">Celebrating Gogo and her 10 children</p>
+        </div>
+      </div>
+      <div class="note">Made with ❤️ for Family</div>
+    </header>
+
+    <section class="card">
+      <h2 style="margin-top:0">Family Tree</h2>
+      <div class="tree" id="familyTree">
+        <ul>
+          <li>
+            <div class="couple">
+              <div class="member highlight">
+                <img src="images/imagegogo1.jpg" alt="Grandmother Photo">
+                <h3>Gogo: [Nombango Francis Khowa]</h3>
+                <p>Born: 1935</p>
+              </div>
+              <div class="member highlight">
+                <!--add picture of Grandfather later-->
+                <img src="images/test.png" alt="Grandfather Photo">
+                <h3>Mkhulu: [Mwezwa Solomon Khowa]</h3>
+                <p>Born: 1940</p>
+              </div>
+            </div>
+            <ul>
+              <!-- 10 Children -->
+          <li>
+  <div class="member">
+    <a href="lucky.html">
+      <img src="images/Lucky Khowa.jpg" alt="Lucky Khowa">
+      <h3>Lucky Khowa</h3>
+      <p>Child</p>
+    </a>
+  </div>
+</li>
+
+<li>
+  <div class="member">
+    <a href="bongiwe.html">
+      <img src="images/Bongiwe Nelly Khowa.jpg" alt="Bongiwe Nelly Khowa">
+      <h3>Bongiwe Nelly Khowa</h3>
+      <p>Child</p>
+    </a>
+  </div>
+</li>
+
+<li>
+  <div class="member">
+    <a href="wilton.html">
+      <img src="images/wilton khowa.jpg" alt="Wilton Khowa">
+      <h3>Wilton Khowa</h3>
+      <p>Born:</p>
+    </a>
+  </div>
+</li>
+
+<li>
+  <div class="member">
+    <a href="sifiso.html">
+      <img src="images/imageSifiso Khowa.jpg" alt="Sifiso Khowa">
+      <h3>Sifiso Khowa</h3>
+      <p>Born:</p>
+    </a>
+  </div>
+</li>
+
+<li>
+  <div class="member">
+    <a href="tman.html">
+      <img src="images/imageT-Man Khowa.jpg" alt="T-Man Khowa">
+      <h3>T-Man Khowa</h3>
+      <p>Born:</p>
+    </a>
+  </div>
+</li>
+
+<li>
+  <div class="member">
+    <a href="happy.html">
+      <img src="images/imageHappy Khowa.jpg" alt="Happy Khowa">
+      <h3>Happy Khowa</h3>
+      <p>Born:</p>
+    </a>
+  </div>
+</li>
+
+<li>
+  <div class="member">
+    <a href="chris.html">
+      <img src="images/imageChris Khowa.jpg" alt="Chris Khowa">
+      <h3>Chris Khowa</h3>
+      <p>Born:</p>
+    </a>
+  </div>
+</li>
+
+<li>
+  <div class="member">
+    <a href="ntombifikile.html">
+      <!--add picture of NTOMBIFIKILE LATER-->
+      <img src="images/test.png" alt="Ntombifikile Khowa">
+      <h3>Ntombifikile Khowa</h3>
+      <p>Born:</p>
+    </a>
+  </div>
+</li>
+
+<li>
+  <div class="member">
+    <a href="mendy.html">
+      <!--add picture of MENDY LATER-->
+      <img src="images/test.png" alt="Aunt Mendy Khowa">
+      <h3>Aunt Mendy Khowa</h3>
+      <p>Born:</p>
+    </a>
+  </div>
+</li>
+
+<li>
+  <div class="member">
+    <a href="sbusisiwe.html">
+      <!--add picture of SBUSISIWE LATER-->
+      <img src="images/test.png" alt="Sbusisiwe Khowa">
+      <h3>Sbusisiwe Khowa</h3>
+      <p>Born:</p>
+    </a>
+  </div>
+</li>
+
+    </section>
+
+    <section class="card" style="margin-top:18px">
+      <h2 style="margin-top:0">Location & Address</h2>
+      <div class="location">
+        <div class="addr" id="addressBlock">
+          <strong>Gogo Khowa Address</strong>
+          <div>Mfazana Mthwalume</div>
+        </div>
+        <!-- ✅ Embedded Map -->
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3480.4853013377816!2d30.594192115084784!3d-30.537365281732137!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ef623e28f273b43%3A0xf3b0b5c9b10c19de!2sMfazazana!5e0!3m2!1sen!2sza!4v1694425854879!5m2!1sen!2sza" 
+          width="100%" height="300" style="border:0;border-radius:12px;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </section>
+
+    <!-- 🖼️ Animated Gallery Section -->
+    <section class="card" style="margin-top:18px">
+      <h2 style="margin-top:0">Family Gallery</h2>
+      <div class="gallery">
+        <div class="gallery-track">
+          <img src="images/imagegogo1.jpg" alt="Gallery Photo 1">
+          <img src="images/wilton khowa.jpg" alt="Gallery Photo 2">
+          <img src="images/imageSifiso Khowa.jpg" alt="Gallery Photo 3">
+          <img src="images/imageT-Man Khowa.jpg" alt="Gallery Photo 4">
+          <img src="images/family.jpg" alt="Gallery Photo 5">
+          <img src="images/imageHappy Khowa.jpg" alt="Gallery Photo 6">
+          <img src="images/imageChris Khowa.jpg" alt="Gallery Photo 7">
+          <img src="images/Lucky Khowa.jpg" alt="Gallery Photo 8">
+          <img src="images/Bongiwe Nelly Khowa.jpg" alt="Gallery Photo 8">
+          <img src="images/family.jpg" alt="Gallery Placeholder">
+        </div>
+      </div>
+    </section>
+
+    <footer style="margin-top:18px;text-align:center;color:var(--muted);font-size:13px">
+      <div class="note">Website family tree for Gogo 90th birthday</div>
+    </footer>
+  </div>
+</body>
+</html>
