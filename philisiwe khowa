@@ -25,15 +25,15 @@
 
   <div class="card">
     <div class="member">
-      <img src="images/Sihle Sithole.jpg" alt="Sihle Mpisana Sithole">
-      <h2>Sihle Mpisana Sithole</h2>
-      <p>Child of lucky Khowa</p>
+      <img src="images/philisiwe khowa.jpg" alt="philisiwe khowa">
+      <h2>Philisiwe Khowa</h2>
+      <p>Child of Lucky Khowa</p>
     </div>
 
     <h3>Children (Great-Great-Grandkids of Gogo)</h3>
     <div class="grandkids">
-      <div class="grandkid"><img src="images/kwanda nkhosinathi sithole.jpeg" alt="Kwanda Nkhosinathi Sithole"><h4>Kwanda Nkhosinathi Sithole</h4></div>
-      <div class="grandkid"><img src="images/Philile Minenhle Sithole.JPG" alt="Philile Minenhle Sithole"><h4>Philile Minenhle Sithole</h4></div>
+      <div class="grandkid"><img src="images/zenande asante khowa.JPG" alt="zenande asante khowa"><h4>zenande asante khowa</h4></div>
+      
       <!-- to add more kids if needed -->
     </div>
   </div>
