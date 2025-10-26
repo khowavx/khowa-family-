@@ -1,4 +1,4 @@
-<!doctype html>
+<!doctype html> 
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -74,6 +74,8 @@
       margin-top: 30px;
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
       backdrop-filter: blur(12px);
+      position: relative;
+      overflow: hidden;
     }
 
     h2 { margin-top: 0; color: #312e81; text-align: center; }
@@ -134,6 +136,36 @@
     @keyframes glow {
       from { box-shadow: 0 0 20px #FFD700, 0 0 40px #FFA500; }
       to { box-shadow: 0 0 40px #FFD700, 0 0 80px #FF6347; }
+    }
+
+    /* Clan Background Words */
+    .clan-background {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .clan-word {
+      position: absolute;
+      font-size: 50px;
+      font-weight: 700;
+      color: rgba(49, 46, 129, 0.08);
+      text-transform: uppercase;
+      white-space: nowrap;
+      animation: floatClan 15s linear infinite;
+    }
+
+    @keyframes floatClan {
+      0% { transform: translateY(0); opacity: 0.6; }
+      50% { transform: translateY(-20px); opacity: 1; }
+      100% { transform: translateY(0); opacity: 0.6; }
+    }
+
+    .tree, .gallery {
+      position: relative;
+      z-index: 1;
     }
 
     /* 🖼️ Gallery */
@@ -220,72 +252,12 @@
     @media (max-width: 800px) {
       .member { width: 200px; }
       .gallery img { width: 140px; height: 140px; }
+      .clan-word { font-size: 28px; }
     }
-
-    /* 🪶 Clan Names Background (Floating Motion) */
-.clan-background {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  overflow: hidden;
-  pointer-events: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  opacity: 0.07;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 8px;
-  font-size: 80px;
-  color: #3b0764;
-  font-family: 'Poppins', sans-serif;
-  background: radial-gradient(circle at center, rgba(255,255,255,0.05) 0%, transparent 70%);
-}
-
-.clan-background div {
-  position: absolute;
-  white-space: nowrap;
-  animation: drift 60s linear infinite;
-  opacity: 0.08;
-}
-
-/* Each name has a different drift pattern */
-.clan-background div:nth-child(1) { top: 10%; left: -20%; animation-delay: 0s; }
-.clan-background div:nth-child(2) { top: 25%; left: 120%; animation-delay: 10s; }
-.clan-background div:nth-child(3) { top: 45%; left: -30%; animation-delay: 20s; }
-.clan-background div:nth-child(4) { top: 60%; left: 110%; animation-delay: 30s; }
-.clan-background div:nth-child(5) { top: 75%; left: -25%; animation-delay: 40s; }
-.clan-background div:nth-child(6) { top: 85%; left: 130%; animation-delay: 50s; }
-.clan-background div:nth-child(7) { top: 5%; left: 100%; animation-delay: 15s; }
-
-@keyframes drift {
-  0% { transform: translateX(0) translateY(0); }
-  50% { transform: translateX(-10vw) translateY(10px); }
-  100% { transform: translateX(-120vw) translateY(-10px); }
-}
-
-/* Mobile adjustments */
-@media (max-width: 800px) {
-  .clan-background {
-    font-size: 30px;
-    letter-spacing: 3px;
-  }
-}
 
   </style>
 </head>
 <body>
-  <div class="clan-background">
-  <div>Ngambata</div>
-  <div>Zameko</div>
-  <div>Shamase</div>
-  <div>Bhensel</div>
-  <div>Hlotsheni</div>
-  <div>Malandelwa Intomb</div>
-  <div>Mkhwanazi</div>
-</div>
-
   <div class="container">
     <div class="banner">
       <h2>🎉 Happy 90th Birthday Gogo Nombango Francis Khowa 🎉</h2>
@@ -305,6 +277,16 @@
 
     <!-- 🌳 Family Tree -->
     <section class="card">
+      <div class="clan-background">
+        <span class="clan-word" style="top:10%; left:15%;">Ngambata</span>
+        <span class="clan-word" style="top:40%; left:5%;">Zameko</span>
+        <span class="clan-word" style="top:70%; left:20%;">Shamase</span>
+        <span class="clan-word" style="top:20%; right:10%;">Bhensel</span>
+        <span class="clan-word" style="top:50%; right:15%;">Hlotsheni</span>
+        <span class="clan-word" style="top:80%; right:25%;">Malandelwa intomb</span>
+        <span class="clan-word" style="top:60%; left:45%;">Mkhwanazi</span>
+      </div>
+
       <h2>Family Tree</h2>
       <div class="tree">
         <ul>
