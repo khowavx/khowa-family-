@@ -254,6 +254,36 @@
       .gallery img { width: 140px; height: 140px; }
       .clan-word { font-size: 28px; }
     }
+    /* 🪶 Tooltip Message for Family Members */
+.member {
+  position: relative;
+  cursor: pointer;
+}
+
+.tooltip {
+  visibility: hidden;
+  opacity: 0;
+  width: 180px;
+  background: rgba(0,0,0,0.8);
+  color: #fff;
+  text-align: center;
+  border-radius: 8px;
+  padding: 8px;
+  position: absolute;
+  z-index: 10;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  font-size: 13px;
+  line-height: 1.3;
+}
+
+.member:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
 
   </style>
 </head>
@@ -304,7 +334,15 @@
               </div>
             </div>
             <ul>
-              <li><div class="member"><a href="lucky.html"><img src="images/Lucky Khowa.jpg"><h3>Lucky Khowa</h3><p>Child</p></a></div></li>
+        
+              <li><div class="member">
+  <a href="lucky.html">
+    <img src="images/Lucky Khowa.jpg" alt="Lucky Khowa">
+    <h3>Lucky Khowa</h3>
+    <p>Child</p>
+  </a>
+  <div class="tooltip">This is Lucky Khowa — has 7 kids. Click to view them.</div>
+</div>
               <li><div class="member"><a href="bongiwe.html"><img src="images/Bongiwe Nelly Khowa.jpg"><h3>Bongiwe Nelly Khowa</h3><p>Child</p></a></div></li>
               <li><div class="member"><a href="wilton.html"><img src="images/wilton khowa.jpg"><h3>Wilton Khowa</h3><p>Child</p></a></div></li>
               <li><div class="member"><a href="sifiso.html"><img src="images/sifiso khowa01.JPG"><h3>Sifiso Khowa</h3><p>Child</p></a></div></li>
