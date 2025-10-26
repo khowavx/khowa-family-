@@ -221,9 +221,56 @@
       .member { width: 200px; }
       .gallery img { width: 140px; height: 140px; }
     }
+
+    /* 🪶 Clan Names Background */
+.clan-background {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  opacity: 0.07;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 8px;
+  font-size: 80px;
+  color: #3b0764;
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.05) 0%, transparent 70%);
+  animation: floatWords 30s ease-in-out infinite alternate;
+}
+
+@keyframes floatWords {
+  from { transform: translateY(0); }
+  to { transform: translateY(-20px); }
+}
+
+/* Make sure background adjusts on mobile */
+@media (max-width: 800px) {
+  .clan-background {
+    font-size: 30px;
+    letter-spacing: 3px;
+  }
+}
+
   </style>
 </head>
 <body>
+
+  <div class="clan-background">
+  <div>Ngambata</div>
+  <div>Zameko</div>
+  <div>Shamase</div>
+  <div>Bhensel</div>
+  <div>Hlotsheni</div>
+  <div>Malandelwa Intomb</div>
+  <div>Mkhwanazi</div>
+</div>
+
   <div class="container">
     <div class="banner">
       <h2>🎉 Happy 90th Birthday Gogo Nombango Francis Khowa 🎉</h2>
