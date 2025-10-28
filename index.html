@@ -142,25 +142,56 @@
       from { box-shadow: 0 0 20px #FFD700, 0 0 40px #FFA500; }
       to { box-shadow: 0 0 40px #FFD700, 0 0 80px #FF6347; }
     }
+/* 🌿 Floating clan names behind everything */
+.clan-background {
+  position: fixed;  /* stays in place while scrolling */
+  inset: 0;         /* covers the whole screen */
+  overflow: hidden;
+  z-index: 0;       /* keeps it behind everything */
+  pointer-events: none;
+}
 
-    /* Clan Background Words */
-    .clan-background {
-      position: absolute;
-      inset: 0;
-      overflow: hidden;
-      z-index: 0;
-      pointer-events: none;
-    }
+.clan-word {
+  position: absolute;
+  font-size: 60px;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.08); /* light & subtle */
+  text-transform: uppercase;
+  white-space: nowrap;
+  animation: floatClan 35s ease-in-out infinite alternate;
+  opacity: 0;
+}
 
-    .clan-word {
-      position: absolute;
-      font-size: 50px;
-      font-weight: 700;
-      color: rgba(49, 46, 129, 0.08);
-      text-transform: uppercase;
-      white-space: nowrap;
-      animation: floatClan 15s linear infinite;
-    }
+/* 🌬️ Gentle drifting animation */
+@keyframes floatClan {
+  0% {
+    transform: translate(0px, 0px);
+    opacity: 0.1;
+  }
+  25% {
+    transform: translate(80px, -60px);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translate(-60px, 80px);
+    opacity: 0.5;
+  }
+  75% {
+    transform: translate(100px, 40px);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translate(-80px, -80px);
+    opacity: 0.1;
+  }
+}
+
+/* Ensure main content is above clan background */
+.container, .banner, .card {
+  position: relative;
+  z-index: 2;
+}
+
 
     @keyframes floatClan {
       0% { transform: translateY(0); opacity: 0.6; }
