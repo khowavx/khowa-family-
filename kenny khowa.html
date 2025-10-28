@@ -13,14 +13,13 @@
       font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto;
     }
 
-    /* Main page background */
+    /* 🌅 MAIN PAGE BACKGROUND */
     body {
-      background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
-                  url("images/family\ kenny.jpg") center/cover no-repeat;
+      background: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)),
+                  url("images/family\ kenny.jpg") center/cover no-repeat fixed;
       margin: 0;
       padding: 20px;
       color: #111;
-      background-attachment: fixed;
     }
 
     header {
@@ -29,6 +28,7 @@
       justify-content: space-between;
       flex-wrap: wrap;
       color: #fff;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.4);
     }
 
     h1 {
@@ -37,19 +37,44 @@
     }
 
     a.back {
-      color: var(--accent);
+      color: #fff;
       text-decoration: none;
       font-weight: 600;
+      background: rgba(0,0,0,0.3);
+      padding: 6px 10px;
+      border-radius: 6px;
+      transition: background 0.3s;
     }
 
-    /* Family Tree Frame */
+    a.back:hover {
+      background: rgba(0,0,0,0.6);
+    }
+
+    /* 🖼️ FAMILY TREE FRAME WITH BACKGROUND + BLUR */
     .card {
-      background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)),
-                  url("images/kenny\ family01.jpg") center/cover no-repeat;
-      border-radius: 12px;
-      padding: 20px;
-      margin-top: 20px;
-      box-shadow: var(--card-shadow);
+      position: relative;
+      background: url("images/kenny\ family01.jpg") center/cover no-repeat;
+      border-radius: 16px;
+      padding: 25px;
+      margin-top: 25px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      overflow: hidden;
+    }
+
+    /* Blur overlay */
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      z-index: 0;
+    }
+
+    .card * {
+      position: relative;
+      z-index: 1;
     }
 
     .member {
@@ -70,6 +95,7 @@
     .member-info h2 {
       margin: 0;
       font-size: 20px;
+      color: #111;
     }
 
     .member-info p {
@@ -107,11 +133,12 @@
       text-align: center;
       box-shadow: var(--card-shadow);
       width: 150px;
-      transition: transform 0.2s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     .grandkid:hover {
       transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
     }
 
     .grandkid img {
