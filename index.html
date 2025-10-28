@@ -143,23 +143,23 @@
       to { box-shadow: 0 0 40px #FFD700, 0 0 80px #FF6347; }
     }
 
-    /* Clan Background Words */
-    .clan-background {
-      position: absolute;
-      inset: 0;
-      overflow: hidden;
-      z-index: 0;
-      pointer-events: none;
-    }
+ /* 🌿 Floating clan names behind everything */
+.clan-background {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
 
-    .clan-word {
+.clan-word {
   position: absolute;
-  font-size: 50px;
+  font-size: 55px;
   font-weight: 700;
   color: rgba(49, 46, 129, 0.08);
   text-transform: uppercase;
   white-space: nowrap;
-  animation: floatClan 22s ease-in-out infinite alternate;
+  animation: floatClan 35s ease-in-out infinite alternate;
   opacity: 0;
 }
 
@@ -171,15 +171,15 @@
   }
   20% {
     transform: translate(40px, -30px);
-    opacity: 0.6;
+    opacity: 0.5;
   }
   50% {
     transform: translate(-30px, 40px);
-    opacity: 1;
+    opacity: 0.8;
   }
   75% {
     transform: translate(50px, 20px);
-    opacity: 0.6;
+    opacity: 0.5;
   }
   100% {
     transform: translate(-40px, -40px);
@@ -187,6 +187,12 @@
   }
 }
 
+
+    @keyframes floatClan {
+      0% { transform: translateY(0); opacity: 0.6; }
+      50% { transform: translateY(-20px); opacity: 1; }
+      100% { transform: translateY(0); opacity: 0.6; }
+    }
 
     .tree, .gallery {
       position: relative;
