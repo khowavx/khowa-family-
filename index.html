@@ -153,20 +153,40 @@
     }
 
     .clan-word {
-      position: absolute;
-      font-size: 50px;
-      font-weight: 700;
-      color: rgba(49, 46, 129, 0.08);
-      text-transform: uppercase;
-      white-space: nowrap;
-      animation: floatClan 15s linear infinite;
-    }
+  position: absolute;
+  font-size: 50px;
+  font-weight: 700;
+  color: rgba(49, 46, 129, 0.08);
+  text-transform: uppercase;
+  white-space: nowrap;
+  animation: floatClan 22s ease-in-out infinite alternate;
+  opacity: 0;
+}
 
-    @keyframes floatClan {
-      0% { transform: translateY(0); opacity: 0.6; }
-      50% { transform: translateY(-20px); opacity: 1; }
-      100% { transform: translateY(0); opacity: 0.6; }
-    }
+/* 🌬️ Smooth multi-directional drift + gentle fading */
+@keyframes floatClan {
+  0% {
+    transform: translate(0px, 0px);
+    opacity: 0;
+  }
+  20% {
+    transform: translate(40px, -30px);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translate(-30px, 40px);
+    opacity: 1;
+  }
+  75% {
+    transform: translate(50px, 20px);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translate(-40px, -40px);
+    opacity: 0;
+  }
+}
+
 
     .tree, .gallery {
       position: relative;
