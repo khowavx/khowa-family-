@@ -259,9 +259,68 @@
       .member { width: 200px; }
       .gallery img { width: 140px; height: 140px; }
     }
+
+    /* 🌿 Floating Clan Names in Background */
+.clan-background {
+  position: fixed; /* stays still while scrolling */
+  inset: 0;
+  overflow: hidden;
+  z-index: 0; /* behind everything */
+  pointer-events: none;
+}
+
+.clan-word {
+  position: absolute;
+  font-size: 80px;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.08);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* vertical movement */
+.clan-word.vertical {
+  animation: floatVertical 40s ease-in-out infinite alternate;
+}
+
+/* horizontal movement */
+.clan-word.horizontal {
+  animation: floatHorizontal 50s ease-in-out infinite alternate;
+}
+
+/* animations */
+@keyframes floatVertical {
+  0% { transform: translateY(0); opacity: 0.3; }
+  50% { transform: translateY(-80px); opacity: 0.6; }
+  100% { transform: translateY(80px); opacity: 0.3; }
+}
+
+@keyframes floatHorizontal {
+  0% { transform: translateX(0); opacity: 0.3; }
+  50% { transform: translateX(100px); opacity: 0.6; }
+  100% { transform: translateX(-100px); opacity: 0.3; }
+}
+
+/* Keep your main content above background */
+.container, .banner, .card, footer {
+  position: relative;
+  z-index: 2;
+}
+
   </style>
 </head>
 <body>
+  <!-- 🌿 Floating Clan Names Background -->
+  <div class="clan-background">
+    <span class="clan-word vertical" style="top:10%; left:5%;">Ngambata</span>
+    <span class="clan-word vertical" style="top:40%; left:2%;">Zameko</span>
+    <span class="clan-word vertical" style="top:70%; left:10%;">Shamase</span>
+    <span class="clan-word horizontal" style="top:20%; right:10%;">Mkhwanazi</span>
+    <span class="clan-word vertical" style="top:50%; right:5%;">Bhensel</span>
+    <span class="clan-word horizontal" style="bottom:15%; right:20%;">Hlotsheni</span>
+  </div>
+
+
   <div class="container">
     <div class="banner">
       <h2>🎉 Happy 90th Birthday Gogo Nombango Francis Khowa 🎉</h2>
