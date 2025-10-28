@@ -1,4 +1,4 @@
-<!doctype html> 
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -67,21 +67,20 @@
 
     .note { font-size: 14px; color: var(--muted); }
 
-  .card {
-  background: 
-    linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), 
-    url("images/group\ picture\ family.jpg");
-  background-size: cover;
-  background-position: center;
-  border-radius: 16px;
-  padding: 24px;
-  margin-top: 30px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(12px);
-  position: relative;
-  overflow: hidden;
-}
-
+    .card {
+      background: 
+        linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), 
+        url("images/group picture family.jpg");
+      background-size: cover;
+      background-position: center;
+      border-radius: 16px;
+      padding: 24px;
+      margin-top: 30px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(12px);
+      position: relative;
+      overflow: hidden;
+    }
 
     h2 { margin-top: 0; color: #312e81; text-align: center; }
 
@@ -113,6 +112,8 @@
       width: 160px;
       box-shadow: 0 8px 24px rgba(16, 24, 40, 0.06);
       transition: all 0.3s ease;
+      position: relative;
+      cursor: pointer;
     }
 
     .member:hover {
@@ -142,61 +143,30 @@
       from { box-shadow: 0 0 20px #FFD700, 0 0 40px #FFA500; }
       to { box-shadow: 0 0 40px #FFD700, 0 0 80px #FF6347; }
     }
-/* 🌿 Floating clan names behind everything */
-.clan-background {
-  position: fixed;  /* stays in place while scrolling */
-  inset: 0;         /* covers the whole screen */
-  overflow: hidden;
-  z-index: 0;       /* keeps it behind everything */
-  pointer-events: none;
-}
 
-.clan-word {
-  position: absolute;
-  font-size: 60px;
-  font-weight: 800;
-  color: rgba(255, 255, 255, 0.08); /* light & subtle */
-  text-transform: uppercase;
-  white-space: nowrap;
-  animation: floatClan 35s ease-in-out infinite alternate;
-  opacity: 0;
-}
+    /* 🪶 Tooltip Message for Family Members */
+    .tooltip {
+      visibility: hidden;
+      opacity: 0;
+      width: 180px;
+      background: rgba(0,0,0,0.8);
+      color: #fff;
+      text-align: center;
+      border-radius: 8px;
+      padding: 8px;
+      position: absolute;
+      z-index: 10;
+      bottom: 110%;
+      left: 50%;
+      transform: translateX(-50%);
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      font-size: 13px;
+      line-height: 1.3;
+    }
 
-/* 🌬️ Gentle drifting animation */
-@keyframes floatClan {
-  0% {
-    transform: translate(0px, 0px);
-    opacity: 0.1;
-  }
-  25% {
-    transform: translate(80px, -60px);
-    opacity: 0.3;
-  }
-  50% {
-    transform: translate(-60px, 80px);
-    opacity: 0.5;
-  }
-  75% {
-    transform: translate(100px, 40px);
-    opacity: 0.3;
-  }
-  100% {
-    transform: translate(-80px, -80px);
-    opacity: 0.1;
-  }
-}
-
-/* Ensure main content is above clan background */
-.container, .banner, .card {
-  position: relative;
-  z-index: 2;
-}
-
-
-    @keyframes floatClan {
-      0% { transform: translateY(0); opacity: 0.6; }
-      50% { transform: translateY(-20px); opacity: 1; }
-      100% { transform: translateY(0); opacity: 0.6; }
+    .member:hover .tooltip {
+      visibility: visible;
+      opacity: 1;
     }
 
     .tree, .gallery {
@@ -288,39 +258,7 @@
     @media (max-width: 800px) {
       .member { width: 200px; }
       .gallery img { width: 140px; height: 140px; }
-      .clan-word { font-size: 28px; }
     }
-    /* 🪶 Tooltip Message for Family Members */
-.member {
-  position: relative;
-  cursor: pointer;
-}
-
-.tooltip {
-  visibility: hidden;
-  opacity: 0;
-  width: 180px;
-  background: rgba(0,0,0,0.8);
-  color: #fff;
-  text-align: center;
-  border-radius: 8px;
-  padding: 8px;
-  position: absolute;
-  z-index: 10;
-  bottom: 110%;
-  left: 50%;
-  transform: translateX(-50%);
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-  font-size: 13px;
-  line-height: 1.3;
-}
-
-.member:hover .tooltip {
-  visibility: visible;
-  opacity: 1;
-}
-
-
   </style>
 </head>
 <body>
@@ -343,16 +281,6 @@
 
     <!-- 🌳 Family Tree -->
     <section class="card">
-      <div class="clan-background">
-        <span class="clan-word" style="top:10%; left:15%;">Ngambata</span>
-        <span class="clan-word" style="top:40%; left:5%;">Zameko</span>
-        <span class="clan-word" style="top:70%; left:20%;">Shamase</span>
-        <span class="clan-word" style="top:20%; right:10%;">Bhensel</span>
-        <span class="clan-word" style="top:50%; right:15%;">Hlotsheni</span>
-        <span class="clan-word" style="top:80%; right:25%;">Malandelwa intomb</span>
-        <span class="clan-word" style="top:60%; left:45%;">Mkhwanazi</span>
-      </div>
-
       <h2>Family Tree</h2>
       <div class="tree">
         <ul>
@@ -370,65 +298,65 @@
               </div>
             </div>
             <ul>
-        
               <li><div class="member"><a href="lucky.html">
-    <img src="images/Lucky Khowa.jpg" alt="Lucky Khowa">
-    <h3>Lucky Khowa</h3>
-    <p>Child</p>
-  </a>
-  <div class="tooltip">This is Lucky Khowa — has 7 kids. Click to view his family.</div>
-</div>
+                <img src="images/Lucky Khowa.jpg" alt="Lucky Khowa">
+                <h3>Lucky Khowa</h3>
+                <p>Child</p></a>
+                <div class="tooltip">This is Lucky Khowa — has 7 kids. Click to view his family.</div>
+              </div></li>
+
               <li><div class="member"><a href="bongiwe.html">
                 <img src="images/Bongiwe Nelly Khowa.jpg">
                 <h3>Bongiwe Nelly Khowa</h3><p>Child</p></a>
-              <div class="tooltip">This is Bongiwe Nelly Khowa — has 4 kids. Click to see her family.</div>
+                <div class="tooltip">This is Bongiwe Nelly Khowa — has 4 kids. Click to see her family.</div>
               </div></li>
-             
+
               <li><div class="member"><a href="wilton.html">
                 <img src="images/wilton khowa.jpg">
                 <h3>Wilton Khowa</h3><p>Child</p></a>
-              <div class="tooltip">This is Wilton Khowa — has 4 kids. Click to see his family.</div>
+                <div class="tooltip">This is Wilton Khowa — has 4 kids. Click to see his family.</div>
               </div></li>
-              
+
               <li><div class="member"><a href="sifiso.html">
                 <img src="images/sifiso khowa01.JPG">
                 <h3>Sifiso Khowa</h3><p>Child</p></a>
-              <div class="tooltip">This is Sifiso Khowa — has 4 kids. Click to see his family.</div>
+                <div class="tooltip">This is Sifiso Khowa — has 4 kids. Click to see his family.</div>
               </div></li>
-              
+
               <li><div class="member"><a href="tman.html">
                 <img src="images/imageT-Man Khowa.jpg">
                 <h3>T-Man Khowa</h3><p>Child</p></a>
-              <div class="tooltip">This is T-man Khowa — has 2 kids. Click to see his family.</div>
+                <div class="tooltip">This is T-man Khowa — has 2 kids. Click to see his family.</div>
               </div></li>
-              
+
               <li><div class="member"><a href="happy.html">
                 <img src="images/imageHappy Khowa.jpg">
                 <h3>Happy Khowa</h3><p>Child</p></a>
-              <div class="tooltip">This is Happy Khowa — has 4 kids. Click to see her family.</div>
+                <div class="tooltip">This is Happy Khowa — has 4 kids. Click to see her family.</div>
               </div></li>
-             
+
               <li><div class="member"><a href="chris.html">
                 <img src="images/imageChris Khowa.jpg">
                 <h3>Chris Khowa</h3><p>Child</p></a>
-              <div class="tooltip">This is Chris Khowa — has 4 kids. Click to see his family.</div>
+                <div class="tooltip">This is Chris Khowa — has 4 kids. Click to see his family.</div>
               </div></li>
-              
+
               <li><div class="member"><a href="ntombifikile.html">
                 <img src="images/test.png">
                 <h3>Ntombifikile Khowa</h3><p>Child</p></a>
-              <div class="tooltip">This is Ntombifikile Khowa — has 3 kids. Click to see her family.</div>
+                <div class="tooltip">This is Ntombifikile Khowa — has 3 kids. Click to see her family.</div>
               </div></li>
 
               <li><div class="member"><a href="mendy.html">
                 <img src="images/test.png">
                 <h3>Mendy Khowa</h3><p>Child</p></a>
-              <div class="tooltip">This is Mendy Khowa —Never had any kids.</div>
+                <div class="tooltip">This is Mendy Khowa — Never had any kids.</div>
               </div></li>
+
               <li><div class="member"><a href="sbusisiwe.html">
                 <img src="images/sbusisiwe khowa01.jpg">
                 <h3>Sbusisiwe Khowa</h3><p>Child</p></a>
-              <div class="tooltip">This is Sbusisiwe Khowa — has 3 kids. Click to see her family.</div>
+                <div class="tooltip">This is Sbusisiwe Khowa — has 3 kids. Click to see her family.</div>
               </div></li>
             </ul>
           </li>
