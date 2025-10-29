@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Thokozile Dayi’s Family</title>
+  <title>Sihle Mpisana Sithole’s Family</title>
   <style>
     :root {
       --accent: #6b4eff;
@@ -13,32 +13,13 @@
       font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto;
     }
 
+    /* 🌅 MAIN PAGE BACKGROUND */
     body {
+      background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+                  url("images/sihle-bg.jpg") center/cover no-repeat fixed;
       margin: 0;
       padding: 20px;
       color: #111;
-      position: relative;
-      min-height: 100vh;
-      background: linear-gradient(135deg, #f8f5ff, #e0f7ff);
-    }
-
-    /* Background image inside the frame */
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background: url('images/couple-bg.jpg') center/cover no-repeat;
-      filter: brightness(1.4) contrast(1.1) grayscale(100%);
-      z-index: -2;
-    }
-
-    /* Light overlay to soften image brightness */
-    body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background: rgba(255, 255, 255, 0.35);
-      z-index: -1;
     }
 
     header {
@@ -46,6 +27,8 @@
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
+      color: #fff;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.4);
     }
 
     h1 {
@@ -54,19 +37,49 @@
     }
 
     a.back {
-      color: var(--accent);
+      color: #fff;
       text-decoration: none;
       font-weight: 600;
+      background: rgba(0,0,0,0.3);
+      padding: 6px 10px;
+      border-radius: 6px;
+      transition: background 0.3s;
     }
 
+    a.back:hover {
+      background: rgba(0,0,0,0.6);
+    }
+
+    /* 🖼️ FAMILY FRAME */
     .card {
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 12px;
-      padding: 20px;
-      margin-top: 20px;
-      box-shadow: var(--card-shadow);
+      position: relative;
+      background: url("images/sihle-family.jpg") center/cover no-repeat;
+      border-radius: 16px;
+      padding: 25px;
+      margin-top: 25px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+      overflow: hidden;
+    }
+
+    /* light overlay to brighten image slightly */
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0.35);
+      z-index: 0;
+    }
+
+    .card * {
       position: relative;
       z-index: 1;
+    }
+
+    .member {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
     }
 
     .member img {
@@ -74,6 +87,20 @@
       height: 100px;
       border-radius: 50%;
       object-fit: cover;
+      border: 3px solid var(--accent);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .member-info h2 {
+      margin: 0;
+      font-size: 20px;
+      color: #111;
+      text-shadow: 0 1px 2px rgba(255,255,255,0.8);
+    }
+
+    .member-info p {
+      margin: 5px 0;
+      color: var(--muted);
     }
 
     .spouse {
@@ -89,6 +116,8 @@
       height: 100px;
       border-radius: 50%;
       object-fit: cover;
+      border: 3px solid var(--accent);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
 
     .grandkids {
@@ -99,12 +128,18 @@
     }
 
     .grandkid {
-      background: #fafaff;
+      background: rgba(255,255,255,0.75);
       border-radius: 12px;
       padding: 10px;
       text-align: center;
       box-shadow: var(--card-shadow);
       width: 150px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .grandkid:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
     }
 
     .grandkid img {
@@ -113,6 +148,7 @@
       border-radius: 50%;
       object-fit: cover;
       margin-bottom: 8px;
+      border: 2px solid var(--accent);
     }
   </style>
 </head>
@@ -125,8 +161,10 @@
   <div class="card">
     <div class="member">
       <img src="images/Sihle Sithole.jpg" alt="Sihle Mpisana Sithole">
-      <h2>Sihle Mpisana Sithole</h2>
-      <p>Child of Lucky Khowa</p>
+      <div class="member-info">
+        <h2>Sihle Mpisana Sithole</h2>
+        <p>Child of Lucky Khowa</p>
+      </div>
     </div>
 
     <div class="spouse">
