@@ -32,7 +32,6 @@
     font-size: 26px;
     margin: 0;
     color: #333;
-    letter-spacing: 0.5px;
   }
 
   a.back {
@@ -46,23 +45,23 @@
     color: #4a2cff;
   }
 
-  /* Main Frame (Card) */
+  /* Family Frame */
   .card {
     position: relative;
-    background: 
-      linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
-      url("images/myfamily group pic.JPG") center/cover no-repeat;
     border-radius: 16px;
     padding: 30px;
     margin-top: 25px;
-    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.1);
-    backdrop-filter: blur(4px);
+    box-shadow: 0 10px 25px rgba(99,102,241,0.1);
+    background: 
+      linear-gradient(rgba(255,255,255,0.55), rgba(255,255,255,0.55)),
+      url("images/myfamily group pic.JPG") center top/cover no-repeat;
+    backdrop-filter: blur(3px);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 
   .card:hover {
     transform: scale(1.01);
-    box-shadow: 0 12px 30px rgba(99, 102, 241, 0.15);
+    box-shadow: 0 12px 30px rgba(99,102,241,0.15);
   }
 
   .member {
@@ -96,7 +95,7 @@
     align-items: center;
     gap: 20px;
     flex-wrap: wrap;
-    background: rgba(255,255,255,0.6);
+    background: rgba(255,255,255,0.5);
     padding: 15px;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(99,102,241,0.08);
@@ -169,7 +168,6 @@
     text-decoration: none;
     color: inherit;
   }
-
 </style>
 </head>
 
