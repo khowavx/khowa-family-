@@ -7,16 +7,16 @@
   <style>
     :root {
       --accent: #6b4eff;
-      --muted: #6b7280;
-      --line: #dfe4ff;
-      --card-shadow: 0 8px 24px rgba(99,102,241,0.08);
+      --muted: #555;
+      --card-shadow: 0 8px 24px rgba(0,0,0,0.08);
       font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto;
     }
 
-    /* 🌅 MAIN PAGE BACKGROUND */
+    /* 🌞 Brighter main background */
     body {
-      background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
-                  url("images/sihles\ family\ husband01.JPG") center/cover no-repeat fixed;
+      background: 
+        linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)),
+        url("images/sihle-bg.jpg") center/cover no-repeat fixed;
       margin: 0;
       padding: 20px;
       color: #111;
@@ -27,8 +27,8 @@
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
-      color: #fff;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+      color: #222;
+      text-shadow: 0 1px 2px rgba(255,255,255,0.8);
     }
 
     h1 {
@@ -37,36 +37,37 @@
     }
 
     a.back {
-      color: #fff;
+      color: var(--accent);
       text-decoration: none;
       font-weight: 600;
-      background: rgba(0,0,0,0.3);
+      background: rgba(255,255,255,0.7);
       padding: 6px 10px;
       border-radius: 6px;
       transition: background 0.3s;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
     a.back:hover {
-      background: rgba(0,0,0,0.6);
+      background: rgba(255,255,255,0.9);
     }
 
-    /* 🖼️ FAMILY FRAME */
+    /* 🖼️ Family frame area */
     .card {
       position: relative;
-      background: url("images/sihles\ family\ husband.JPG") center/cover no-repeat;
+      background: url("images/sihle-family.jpg") center/cover no-repeat;
       border-radius: 16px;
       padding: 25px;
       margin-top: 25px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
       overflow: hidden;
     }
 
-    /* light overlay to brighten image slightly */
+    /* Bright overlay so you can still see the image clearly */
     .card::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(255,255,255,0.35);
+      background: rgba(255,255,255,0.6); /* more bright now */
       z-index: 0;
     }
 
@@ -75,14 +76,14 @@
       z-index: 1;
     }
 
-    .member {
+    .member, .spouse {
       display: flex;
       align-items: center;
       gap: 20px;
       flex-wrap: wrap;
     }
 
-    .member img {
+    .member img, .spouse img {
       width: 100px;
       height: 100px;
       border-radius: 50%;
@@ -94,30 +95,12 @@
     .member-info h2 {
       margin: 0;
       font-size: 20px;
-      color: #111;
-      text-shadow: 0 1px 2px rgba(255,255,255,0.8);
+      color: #222;
     }
 
     .member-info p {
       margin: 5px 0;
       color: var(--muted);
-    }
-
-    .spouse {
-      margin-top: 15px;
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .spouse img {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid var(--accent);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
 
     .grandkids {
@@ -128,7 +111,7 @@
     }
 
     .grandkid {
-      background: rgba(255,255,255,0.75);
+      background: rgba(255,255,255,0.85);
       border-radius: 12px;
       padding: 10px;
       text-align: center;
