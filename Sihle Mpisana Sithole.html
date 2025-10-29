@@ -4,21 +4,107 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Thokozile Dayi’s Family</title>
+
   <style>
-    :root{--accent:#6b4eff;--muted:#6b7280;--line:#dfe4ff;--card-shadow:0 8px 24px rgba(99,102,241,0.08);font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto;}
-    body{background:linear-gradient(135deg,#f8f5ff,#e0f7ff);margin:0;padding:20px;color:#111;}
-    header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap}
-    h1{font-size:24px;margin:0}
-    a.back{color:var(--accent);text-decoration:none;font-weight:600}
-    .card{background:#fff;border-radius:12px;padding:20px;margin-top:20px;box-shadow:var(--card-shadow)}
-    .member img{width:100px;height:100px;border-radius:50%;object-fit:cover}
-    .grandkids{display:flex;flex-wrap:wrap;gap:20px;margin-top:20px}
-    .spouse {
-      margin-top: 15px;
+    :root {
+      --accent: #7a6cf2;
+      --muted: #6b7280;
+      --line: #e0e0e0;
+      --card-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto;
+    }
+
+    body {
+      background: linear-gradient(135deg, #f7f7f7, #f1f1f1);
+      margin: 0;
+      padding: 20px;
+      color: #111;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 26px;
+      margin: 0;
+      color: #333;
+    }
+
+    a.back {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    a.back:hover {
+      color: #4a3de0;
+    }
+
+    /* 🖼️ Frame with Black & White Background Image */
+    .card {
+      position: relative;
+      border-radius: 16px;
+      padding: 30px;
+      margin-top: 20px;
+      background: 
+        linear-gradient(rgba(255,255,255,0.75), rgba(255,255,255,0.75)),
+        url("images/sihles\ family\ husband.JPG") center/cover no-repeat;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      backdrop-filter: blur(3px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.01);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    }
+
+    /* 💕 Main Member */
+    .member {
+      text-align: left;
       display: flex;
       align-items: center;
       gap: 20px;
       flex-wrap: wrap;
+      margin-bottom: 15px;
+    }
+
+    .member img {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .member h2 {
+      margin: 0;
+      color: #222;
+    }
+
+    .member p {
+      color: var(--muted);
+      margin: 4px 0 0;
+    }
+
+    /* 💍 Spouse Section */
+    .spouse {
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      background: rgba(255, 255, 255, 0.5);
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     }
 
     .spouse img {
@@ -26,13 +112,71 @@
       height: 100px;
       border-radius: 50%;
       object-fit: cover;
+      border: 3px solid rgba(255,255,255,0.8);
     }
 
+    .spouse .member-info h2 {
+      margin: 0;
+      color: #222;
+    }
 
-    .grandkid{background:#fafaff;border-radius:12px;padding:10px;text-align:center;box-shadow:var(--card-shadow);width:150px}
-    .grandkid img{width:100px;height:100px;border-radius:50%;object-fit:cover;margin-bottom:8px}
+    .spouse .member-info p {
+      color: var(--muted);
+      margin: 4px 0 0;
+    }
+
+    /* 👶 Children Section */
+    h3 {
+      margin-top: 30px;
+      color: #333;
+      border-bottom: 2px solid var(--line);
+      padding-bottom: 6px;
+    }
+
+    .grandkids {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .grandkid {
+      background: rgba(255,255,255,0.9);
+      border-radius: 12px;
+      padding: 12px;
+      text-align: center;
+      box-shadow: var(--card-shadow);
+      width: 150px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .grandkid:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    }
+
+    .grandkid img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 8px;
+      border: 2px solid rgba(255,255,255,0.8);
+    }
+
+    .grandkid h4 {
+      margin: 0;
+      font-size: 15px;
+      color: #222;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
   </style>
 </head>
+
 <body>
   <header>
     <h1>Sihle Mpisana Sithole’s Family</h1>
@@ -42,24 +186,33 @@
   <div class="card">
     <div class="member">
       <img src="images/Sihle Sithole.jpg" alt="Sihle Mpisana Sithole">
-      <h2>Sihle Mpisana Sithole</h2>
-      <p>Child of lucky Khowa</p>
+      <div>
+        <h2>Sihle Mpisana Sithole</h2>
+        <p>Child of Lucky Khowa</p>
+      </div>
     </div>
 
-      <!-- Spouse -->
+    <!-- Spouse -->
     <div class="spouse">
-      <img src="images/sihle's husband.jpg" alt="sihle Mpisana Sithole’s Wife">
+      <img src="images/sihle's husband.jpg" alt="Sihle Mpisana Sithole’s Husband">
       <div class="member-info">
         <h2>Sifiso Sithole</h2>
         <p>Husband of Sihle Mpisana Sithole</p>
       </div>
     </div>
 
+    <!-- Children -->
     <h3>Children (Great-Great-Grandkids of Gogo)</h3>
     <div class="grandkids">
-      <div class="grandkid"><img src="images/kwanda nkhosinathi sithole01.JPG" alt="Kwanda Nkhosinathi Sithole"><h4>Kwanda Nkhosinathi Sithole</h4></div>
-      <div class="grandkid"><img src="images/Philile Minenhle Sithole.JPG" alt="Philile Minenhle Sithole"><h4>Philile Minenhle Sithole</h4></div>
-      <!-- to add more kids if needed -->
+      <div class="grandkid">
+        <img src="images/kwanda nkhosinathi sithole01.JPG" alt="Kwanda Nkhosinathi Sithole">
+        <h4>Kwanda Nkhosinathi Sithole</h4>
+      </div>
+
+      <div class="grandkid">
+        <img src="images/Philile Minenhle Sithole.JPG" alt="Philile Minenhle Sithole">
+        <h4>Philile Minenhle Sithole</h4>
+      </div>
     </div>
   </div>
 </body>
