@@ -4,20 +4,23 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Sizwe Khowa’s Family</title>
+
   <style>
     :root {
       --accent: #6b4eff;
       --muted: #6b7280;
-      --line: #dfe4ff;
       --card-shadow: 0 8px 24px rgba(99,102,241,0.08);
       font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto;
     }
 
+    /* 🌅 MAIN BACKGROUND */
     body {
-      background: linear-gradient(135deg, #f8f5ff, #e0f7ff);
+      background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+                  url("images/sizwe_family_bg.jpg") center/cover no-repeat fixed;
       margin: 0;
       padding: 20px;
-      color: #111;
+      color: #fff;
+      text-shadow: 0 2px 3px rgba(0,0,0,0.4);
     }
 
     header {
@@ -28,36 +31,65 @@
     }
 
     h1 {
-      font-size: 24px;
       margin: 0;
+      font-size: 24px;
     }
 
     a.back {
-      color: var(--accent);
+      color: #fff;
       text-decoration: none;
       font-weight: 600;
+      background: rgba(0,0,0,0.3);
+      padding: 6px 10px;
+      border-radius: 6px;
+      transition: 0.3s;
     }
 
+    a.back:hover {
+      background: rgba(0,0,0,0.6);
+    }
+
+    /* 🖼️ FAMILY FRAME WITH BACKGROUND IMAGE */
     .card {
-      background: #fff;
-      border-radius: 12px;
-      padding: 20px;
-      margin-top: 20px;
-      box-shadow: var(--card-shadow);
+      position: relative;
+      background: url("images/sizwe\ and\ wife.JPG") center/cover no-repeat;
+      border-radius: 16px;
+      padding: 25px;
+      margin-top: 25px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+      overflow: hidden;
+      color: #111;
+      text-shadow: none;
     }
 
-    .member {
+    /* Light overlay (makes text readable but image still visible) */
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0.25);
+      z-index: 0;
+    }
+
+    .card * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .member, .spouse {
       display: flex;
       align-items: center;
       gap: 20px;
       flex-wrap: wrap;
     }
 
-    .member img {
+    .member img, .spouse img {
       width: 100px;
       height: 100px;
       border-radius: 50%;
       object-fit: cover;
+      border: 3px solid var(--accent);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
 
     .member-info h2 {
@@ -70,21 +102,6 @@
       color: var(--muted);
     }
 
-    .spouse {
-      margin-top: 15px;
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .spouse img {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-
     .grandkids {
       display: flex;
       flex-wrap: wrap;
@@ -93,12 +110,18 @@
     }
 
     .grandkid {
-      background: #fafaff;
+      background: rgba(255,255,255,0.75);
       border-radius: 12px;
       padding: 10px;
+      width: 150px;
       text-align: center;
       box-shadow: var(--card-shadow);
-      width: 150px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .grandkid:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
     }
 
     .grandkid img {
@@ -106,18 +129,22 @@
       height: 100px;
       border-radius: 50%;
       object-fit: cover;
+      border: 2px solid var(--accent);
       margin-bottom: 8px;
     }
   </style>
 </head>
+
 <body>
+
   <header>
     <h1>Sizwe Khowa’s Family</h1>
-    <a href="lucky.html" class="back">← Back to lucky Khowa’s Family</a>
+    <a href="lucky.html" class="back">← Back to Lucky Khowa’s Family</a>
   </header>
 
   <div class="card">
-    <!-- Main member -->
+
+    <!-- Main Member -->
     <div class="member">
       <img src="images/Sizwe khowa.jpg" alt="Sizwe Khowa">
       <div class="member-info">
@@ -137,26 +164,27 @@
 
     <!-- Children -->
     <h3>Children (Great-Great-Grandkids of Gogo)</h3>
+
     <div class="grandkids">
+
       <div class="grandkid">
-        <img src="images/sipho khowa.jpg" alt="sipho khowa">
-        <h4> Simlindile khowa</h4>
-      </div>
-     
-        
-      <div class="grandkid">
-        <img src="images/simlindile khowa.jpg" alt="simlindile khowa">
-        <h4>Sipho khowa</h4>
+        <img src="images/sipho khowa.jpg" alt="Simlindile Khowa">
+        <h4>Simlindile Khowa</h4>
       </div>
 
-        
       <div class="grandkid">
-        <img src="images/akhanya02.JPG" alt="akhanya khowa">
-        <h4>Akhanya khowa</h4>
+        <img src="images/simlindile khowa.jpg" alt="Sipho Khowa">
+        <h4>Sipho Khowa</h4>
       </div>
 
-      <!-- Add more kids as needed -->
+      <div class="grandkid">
+        <img src="images/akhanya02.JPG" alt="Akhanya Khowa">
+        <h4>Akhanya Khowa</h4>
+      </div>
+
     </div>
+
   </div>
+
 </body>
 </html>
