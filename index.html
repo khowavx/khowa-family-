@@ -307,59 +307,35 @@
   z-index: 2;
 }
 
-/* Marquee: smooth, responsive, pause-on-hover */
-:root {
-  --marquee-speed: 18s; /* lower = faster, higher = slower */
-}
-
 .clan-marquee {
   position: relative;
-  width: 100%;
   overflow: hidden;
-  margin-top: 18px;
-  --marquee-fg: rgba(0,0,0,0.62);
+  width: 100%;
+  margin-top: 20px;
 }
 
-/* track holds two copies of the content side-by-side */
 .marquee-track {
   display: flex;
-  gap: 40px;
-  align-items: center;
+  width: max-content;
   white-space: nowrap;
-  position: relative;
-  /* make the animated block as wide as needed */
-  min-width: 100%;
-  will-change: transform;
-  animation: marquee-move var(--marquee-speed) linear infinite;
+  animation: scroll-left 15s linear infinite;
 }
 
-/* the moving piece */
-.marquee-content {
-  font-size: 20px;
+.marquee-track span {
+  font-size: 22px;
   font-weight: 600;
-  text-transform: none;
-  color: var(--marquee-fg);
-  letter-spacing: 0.02em;
-  padding: 6px 0;
-  display: inline-block;
+  color: rgba(0,0,0,0.65);
+  padding-right: 50px; /* space between loops */
 }
 
-/* pause on hover so people can read */
-.clan-marquee:hover .marquee-track,
-.clan-marquee:focus-within .marquee-track {
-  animation-play-state: paused;
-}
-
-/* animation moves the whole track left by 50% of its width (two copies make it seamless) */
-@keyframes marquee-move {
-  0%   { transform: translateX(0%); }
-  100% { transform: translateX(-50%); }
-}
-
-/* responsive sizing — smaller on mobile */
-@media (max-width: 700px) {
-  .marquee-content { font-size: 14px; }
-  :root { --marquee-speed: 14s; } /* slightly faster on smaller screens */
+/* ✅ CONTINUOUS, NEVER STOPPING */
+@keyframes scroll-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
   </style>
@@ -374,17 +350,14 @@
       <p>Celebrating a legacy of love, family, and togetherness</p>
 
 <!-- moving clan names (marquee) -->
-<div class="clan-marquee" aria-hidden="true">
+
+ <div class="clan-marquee">
   <div class="marquee-track">
-    <div class="marquee-content">
-      Izithakazelo zakwa Khowa: Ngqambhatha • Zameko • Shamase • Bhensela • Hlotsheni • Malandelwa intombi...
-    </div>
-    <!-- duplicate for seamless loop -->
-    <div class="marquee-content" aria-hidden="true">
-      Izithakazelo zakwa Khowa: Ngqambhatha • Zameko • Shamase • Bhensela • Hlotsheni • Malandelwa intombi...
-    </div>
+    <span>Izithakazelo zakwa Khowa: Ngqambhatha • Zameko • Shamase • Bhensela • Hlotsheni • Malandelwa intombi...</span>
+    <span>Izithakazelo zakwa Khowa: Ngqambhatha • Zameko • Shamase • Bhensela • Hlotsheni • Malandelwa intombi...</span>
   </div>
 </div>
+
 
 
     </div>
