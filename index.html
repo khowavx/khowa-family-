@@ -306,25 +306,47 @@
   position: relative;
   z-index: 2;
 }
+/* 🔥 Moving Clan Names in Banner */
+.clan-marquee {
+  margin-top: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  font-size: 22px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.55);
+  text-transform: uppercase;
+}
+
+.clan-marquee::before {
+  content: "Izithakazelo zakwa Khowa: Ngqambhatha • Zameko • Shamase • Bhensela • Hlotsheni • Malandelwa intombi...   ";
+  position: absolute;
+  white-space: nowrap;
+  will-change: transform;
+  animation: marqueeMove 18s linear infinite;
+}
+
+@keyframes marqueeMove {
+  from { transform: translateX(100%); }
+  to   { transform: translateX(-100%); }
+}
+
 
   </style>
 </head>
 <body>
-  <!-- 🌿 Floating Clan Names Background -->
-  <div class="clan-background">
-    <span class="clan-word vertical" style="top:10%; left:5%;">Ngambata</span>
-    <span class="clan-word vertical" style="top:40%; left:2%;">Zameko</span>
-    <span class="clan-word vertical" style="top:70%; left:10%;">Shamase</span>
-    <span class="clan-word horizontal" style="top:20%; right:10%;">Mkhwanazi</span>
-    <span class="clan-word vertical" style="top:50%; right:5%;">Bhensel</span>
-    <span class="clan-word horizontal" style="bottom:15%; right:20%;">Hlotsheni</span>
-  </div>
-
+ 
 
   <div class="container">
     <div class="banner">
       <h2>🎉 Happy 90th Birthday Gogo Nombango Francis Khowa 🎉</h2>
       <p>Celebrating a legacy of love, family, and togetherness</p>
+      <div class="clan-marquee">
+  Izithakazelo zakwa Khowa: Ngqambhatha • Zameko • Shamase • Bhensela • Hlotsheni • Malandelwa intombi...
+</div>
+
+
     </div>
 
     <header>
