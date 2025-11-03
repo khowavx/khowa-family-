@@ -306,31 +306,6 @@
   position: relative;
   z-index: 2;
 }
-/* 🔥 Moving Clan Names in Banner */
-.clan-marquee {
-  margin-top: 20px;
-  white-space: nowrap;
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-  font-size: 22px;
-  font-weight: 600;
-  color: rgba(0, 0, 0, 0.55);
-  text-transform: uppercase;
-}
-
-.clan-marquee::before {
-  content: "Izithakazelo zakwa Khowa: Ngqambhatha • Zameko • Shamase • Bhensela • Hlotsheni • Malandelwa intombi...   ";
-  position: absolute;
-  white-space: nowrap;
-  will-change: transform;
-  animation: marqueeMove 18s linear infinite;
-}
-
-@keyframes marqueeMove {
-  from { transform: translateX(100%); }
-  to   { transform: translateX(-100%); }
-}
 
 
   </style>
